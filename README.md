@@ -33,7 +33,7 @@ Para ejecutar estos laboratorios, necesitarás tener instalado el siguiente soft
 1. **Clonar el Repositorio**: Descarga el proyecto completo a tu máquina local.
 
 ```javascript
-git clone https://github.com/SegurApp/SegurApp-labs.git
+git clone https://github.com/SegurAppNet/SegurApp-labs.git
 ```
 
 2. **Abrir la Solución**: Abre el archivo de solución (.sln) principal del repositorio.
