@@ -1,0 +1,6 @@
+@AntiforgeryTokensAPI_HostAddress = http://localhost:5033
+
+GET {{AntiforgeryTokensAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

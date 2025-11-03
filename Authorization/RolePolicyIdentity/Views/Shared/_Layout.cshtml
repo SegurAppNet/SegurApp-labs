@@ -1,0 +1,127 @@
+﻿@using PoliticaDeRolesIdentity.Services
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SegurApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="@(ViewData["HideNav"] as bool? == true ? "login-page" : "")">
+    <header>
+        @if (!(ViewData["HideNav"] as bool? ?? false))
+        {
+            <nav class="navbar navbar-expand-lg navbar-modern">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <div class="brand-logo">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <span class="brand-text">SegurApp Laboratory</span>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                    Privacidad
+                                </a>
+                            </li>
+                            @if (User.IsInRole(UserRoles.Manager))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "ControlPanel" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="ControlPanelHR">
+                                        Panel de control
+                                    </a>
+                                </li>
+                            }
+                            
+                             @if (User.IsInRole(UserRoles.Manager))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "ControlPanel" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="ManagementTI">
+                                        Informes de TI
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+
+                        <div class="navbar-nav">
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle user-menu" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="user-avatar">
+                                        <span>@(User.Identity?.Name?.Substring(0, 1).ToUpper() ?? "U")</span>
+                                    </div>
+                                    <span class="user-name">@(User.Identity?.Name ?? "Usuario")</span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Home" asp-action="Profile">
+                                            Mi Perfil
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <form id="logoutForm" asp-controller="Account" asp-action="Logout" method="post" class="dropdown-item p-0 m-0">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="btn btn-link text-danger w-100 text-start">
+                                                Cerrar Sesión
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        }
+    </header>
+
+    <main class="main-content">
+        @RenderBody()
+    </main>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <span>&copy; 2025 SegurApp Laboratory. Todos los derechos reservados.</span>
+                </div>
+                <div class="footer-links">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy">Política de Privacidad</a>
+                    <a href="#">Términos de Servicio</a>
+                    <a href="#">Soporte</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

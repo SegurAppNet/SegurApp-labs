@@ -1,0 +1,93 @@
+@model IdentityProject.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Registrar Usuario";
+    ViewData["HideNav"] = true; 
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-header">
+            <div class="login-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L13.09 8.26L22 9L13.09 9.74L12 16L10.91 9.74L2 9L10.91 8.26L12 2Z" fill="currentColor" />
+                </svg>
+            </div>
+            <h2 class="login-title">Crea una cuenta</h2>
+            <p class="login-subtitle">Bienvenido</p>
+        </div>
+
+        <form asp-action="Register" method="post" class="login-form">
+            
+
+            @if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger" role="alert">
+                    @Html.ValidationSummary(false, "", new { @class = "mb-0" })
+                </div>
+            }
+
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control login-input" placeholder="Usuario" required />
+                <label asp-for="Email" class="form-label">Usuario</label>
+                <span asp-validation-for="Email" class="text-danger small"></span>
+                <div class="input-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input asp-for="Password" type="password" class="form-control login-input" placeholder="Contraseña" required />
+                <label asp-for="Password" class="form-label">Contraseña</label>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+                <div class="input-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" />
+                        <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input asp-for="ConfirmPassword" type="password" class="form-control login-input" placeholder="Contraseña" required />
+                <label asp-for="ConfirmPassword" class="form-label">Confirma contraseña</label>
+                <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                <div class="input-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2" />
+                        <path d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-login w-100">
+                <span class="btn-text">Crear cuenta</span>
+                <div class="btn-loader d-none">
+                    <div class="spinner-border spinner-border-sm" role="status">
+                        <span class="visually-hidden">Cargando...</span>
+                    </div>
+                </div>
+            </button>
+        </form>
+
+    </div>
+
+    <div class="login-bg-pattern"></div>
+</div>
+
+<script>
+    document.querySelector('.login-form').addEventListener('submit', function() {
+        const btn = document.querySelector('.btn-login');
+        const btnText = btn.querySelector('.btn-text');
+        const btnLoader = btn.querySelector('.btn-loader');
+
+        btnText.classList.add('d-none');
+        btnLoader.classList.remove('d-none');
+        btn.disabled = true;
+    });
+</script>

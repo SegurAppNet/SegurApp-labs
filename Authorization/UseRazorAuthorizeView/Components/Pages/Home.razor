@@ -1,0 +1,130 @@
+﻿@page "/"
+
+<PageTitle>Inicio</PageTitle>
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h1 class="fw-bold mb-3"> ¡Bienvenido de nuevo, Desarrollador!</h1>
+        <p class="text-muted fs-5">
+            Aquí tienes tu panel de inicio. Explora consejos, snippets y recursos útiles para seguir mejorando cada día 
+        </p>
+    </div>
+
+    <div class="row g-4 mb-5 text-center">
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm p-4 rounded-4">
+                <i class="bi bi-code-slash fs-2 text-primary mb-2"></i>
+                <h5 class="fw-semibold mb-0">+1500</h5>
+                <p class="text-muted small mb-0">Líneas de código</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm p-4 rounded-4">
+                <i class="bi bi-git fs-2 text-danger mb-2"></i>
+                <h5 class="fw-semibold mb-0">42</h5>
+                <p class="text-muted small mb-0">Commits esta semana</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm p-4 rounded-4">
+                <i class="bi bi-lightbulb-fill fs-2 text-warning mb-2"></i>
+                <h5 class="fw-semibold mb-0">8</h5>
+                <p class="text-muted small mb-0">Ideas nuevas</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card border-0 shadow-sm p-4 rounded-4">
+                <i class="bi bi-cup-hot fs-2 text-success mb-2"></i>
+                <h5 class="fw-semibold mb-0">12</h5>
+                <p class="text-muted small mb-0">Cafés hoy </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 p-4 rounded-4">
+                <h5 class="fw-bold text-primary mb-3">
+                    <i class="bi bi-lightning-fill me-2"></i>Consejo del día
+                </h5>
+                <p class="text-secondary">
+                 “No repitas código. Si te ves copiando y pegando algo, conviértelo en una función reutilizable.”
+                </p>
+                <p class="text-muted small">– DRY Principle</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 p-4 rounded-4">
+                <h5 class="fw-bold text-primary mb-3">
+                    <i class="bi bi-code-square me-2"></i>Snippet útil
+                </h5>
+                <pre class="bg-light p-3 rounded small mb-3">
+
+                </pre>
+                <p class="text-muted small"> Usa interpolación de cadenas para mejorar la legibilidad.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 p-4 rounded-4">
+                <h5 class="fw-bold text-primary mb-3">
+                    <i class="bi bi-mortarboard-fill me-2"></i>Aprende más
+                </h5>
+                <p class="text-secondary mb-4">
+                    Fortalece tus habilidades con la documentación y tutoriales recomendados.
+                </p>
+                <div class="d-grid gap-2">
+                    <a href="https://learn.microsoft.com/aspnet/core" target="_blank" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-book me-1"></i> Docs oficiales
+                    </a>
+                    <a href="https://www.youtube.com/results?search_query=blazor+tutorial+español" target="_blank" class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-youtube me-1"></i> YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h4 class="fw-bold mb-3"><i class="bi bi-folder-fill text-primary me-2"></i>Proyectos recientes</h4>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Última actualización</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gestor de Inventario</td>
+                        <td><span class="badge bg-success">En desarrollo</span></td>
+                        <td>@DateTime.Now.AddDays(-1).ToString("dd MMM yyyy")</td>
+                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ver</a></td>
+                    </tr>
+                    <tr>
+                        <td>Sistema de Ventas</td>
+                        <td><span class="badge bg-warning text-dark">En pruebas</span></td>
+                        <td>@DateTime.Now.AddDays(-4).ToString("dd MMM yyyy")</td>
+                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ver</a></td>
+                    </tr>
+                    <tr>
+                        <td>App Blazor WASM</td>
+                        <td><span class="badge bg-secondary">Completado</span></td>
+                        <td>@DateTime.Now.AddDays(-10).ToString("dd MMM yyyy")</td>
+                        <td><a href="#" class="btn btn-sm btn-outline-primary">Ver</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

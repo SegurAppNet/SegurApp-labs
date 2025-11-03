@@ -1,0 +1,73 @@
+@page "/Account/Login"
+@model UseRazor.RazorPages.Account.LoginModel
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+
+<div class="min-vh-100 d-flex align-items-center justify-content-center" 
+     style="background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);">
+
+    <div class="card shadow-lg p-4 border-0" style="width: 400px; border-radius: 20px;">
+        <div class="text-center mb-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" 
+                 alt="Login Icon" width="80" class="mb-2" />
+            <h3 class="fw-bold text-primary">Bienvenido</h3>
+            <p class="text-muted">Inicia sesión para continuar</p>
+        </div>
+
+        <form method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label asp-for="Input.UsernameOrEmail" class="form-label fw-semibold">Usuario o Email</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-light">
+                        <i class="bi bi-person-fill text-primary"></i>
+                    </span>
+                    <input asp-for="Input.UsernameOrEmail" name="Input.UsernameOrEmail" class="form-control" placeholder="usuario@correo.com" required />
+                </div>
+                <span asp-validation-for="Input.UsernameOrEmail" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Input.Password" class="form-label fw-semibold">Contraseña</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-light">
+                        <i class="bi bi-lock-fill text-primary"></i>
+                    </span>
+                    <input asp-for="Input.Password" name="Input.Password" type="password" class="form-control" placeholder="••••••••" required />
+                </div>
+                <span asp-validation-for="Input.Password" class="text-danger small"></span>
+            </div>
+
+            <div class="form-check mb-4">
+                <input asp-for="Input.RememberMe" class="form-check-input" />
+                <label asp-for="Input.RememberMe" class="form-check-label text-muted">Recuérdame</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Iniciar Sesión
+            </button>
+
+            @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+            {
+                <div class="alert alert-danger mt-3 text-center small">
+                    <i class="bi bi-exclamation-triangle-fill me-1"></i> @Model.ErrorMessage
+                </div>
+            }
+
+            @if (!ViewData.ModelState.IsValid && ViewData.ModelState.Values.Any(v => v.Errors.Count > 0))
+            {
+                <div class="alert alert-warning mt-3 text-center small">
+                    <i class="bi bi-exclamation-circle-fill me-1"></i> Por favor, verifica los datos ingresados.
+                </div>
+            }
+        </form>
+
+        
+    </div>
+</div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
