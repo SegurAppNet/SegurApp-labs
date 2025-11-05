@@ -6,24 +6,24 @@ Este proyecto está diseñado para que implementes una práctica de seguridad en
 
 Antes de comenzar a implementar la lógica de la práctica, es fundamental que configures la base de
 
-###1. Configuración de la Base de Datos (Requisito Previo)
+### 1. Configuración de la Base de Datos (Requisito Previo)
 Este proyecto utiliza Entity Framework Core para gestionar la base de datos de usuarios:
 
-####Paso 1: Crear la Migración
+#### Paso 1: Crear la Migración
 Este comando leerá los modelos de Identity (como IdentityUser) y preparará los archivos de migración para crear las tablas:
 
 ```javascript
 dotnet ef migrations add InitialCreate
 ```
 
-####Paso 2: Aplicar la Migración
+#### Paso 2: Aplicar la Migración
 Este comando ejecutará la migración y creará físicamente la base de datos y sus tablas en tu SQL Server.
 
 ```javascript
 dotnet ef database update
 ```
 
-###2. Solución de Problemas
+### 2. Solución de Problemas
 Es posible que encuentres errores al ejecutar los comandos anteriores. Aquí están las soluciones más comunes.
 
 **Error**: "El término 'dotnet ef' no se reconoce..."
