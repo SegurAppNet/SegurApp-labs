@@ -1,6 +1,6 @@
 # Laboratorios de Seguridad en ASP.NET Core
 
-¡Bienvenido al repositorio de laboratorios de SegurApp! Este proyecto es una colección de aplicaciones de ASP.NET Core diseñadas para enseñar y practicar conceptos fundamentales de seguridad web de forma aislada.
+Este proyecto es una colección de aplicaciones de ASP.NET Core diseñadas para incluir y practicar conceptos de seguridad web.
 
 ## Propósito
 
@@ -21,7 +21,7 @@ El repositorio está organizado en carpetas, donde cada carpeta corresponde a un
 
 ## Requisitos Previos
 
-Para ejecutar estos laboratorios, necesitarás tener instalado el siguiente software:
+Para ejecutar estos laboratorios, necesitarás tener instalado lo siguiente:
 
 - **SDK de .NET 8**
 - **Visual Studio 2022** o **Visual Studio Code**
@@ -40,7 +40,7 @@ git clone https://github.com/SegurAppNet/SegurApp-labs.git
 
 3. **Elige un Laboratorio**: En el Explorador de Soluciones, busca el proyecto correspondiente a la práctica que deseas realizar (ej. JwtApi, AntiforgeryMvc)
 
-4. **Consulta la Guía**: Abre la Guía de Seguridad en la página web y localiza la sección correspondiente a esa práctica.
+4. **Consulta la Guía**: Abre la Guía de Seguridad en la página web de [SegurAppNET](https://segur-app-net.vercel.app/) y localiza la sección correspondiente a esa práctica.
 
 5. **Lee el README Específico**: Algunos laboratorios (especialmente los que usan ASP.NET Core Identity) contienen un archivo README.md en su interior con instrucciones de configuración inicial, como la creación de la base de datos.
 
